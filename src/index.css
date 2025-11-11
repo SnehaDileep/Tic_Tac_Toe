@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Raleway:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-lato: "Lato", sans-serif;
   --font-raleway: "Raleway", sans-serif;
   --font-playfair: "Playfair Display", serif;
+  --font-fingerpaint: "Finger Paint", cursive;
 }
 
 :root {
