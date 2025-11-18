@@ -44,7 +44,11 @@ function App() {
     ];
 
     for (const [a, b, c] of lines) {
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      if (
+          squares[a] && 
+          squares[a] === squares[b] && 
+          squares[a] === squares[c]
+        ){
         return squares[a];
       }
     }
@@ -55,16 +59,19 @@ function App() {
     <div className="min-h-screen bg-slate-900 flex items-center justify-center">
       <div className="w-full max-w-[400px] mx-5">
         <h1 className="text-5xl font-semibold mb-5 text-white font-fingerpaint text-center ">Tic Tac Toe</h1>
-        <div>
+        {/* Status Display */}
+        <div className={`text-center mb-4 text-xl font-bold ${winner ? 'text-green-500 animate-bounce' : isDraw ? 'text-red-500 animate-bounce' : 'text-white'}`}>
           {status}
         </div>
-
+        {/* Game Board with Squares */}
         <div className="grid grid-cols-3 gap-1 rounded-2xl overflow-hidden mb-6">
-          {squares.map((value, index) => (
-          <Square key={index} value={value} onClick={() => handleClick(index)} />
+            {/* Map through squares array */}
+          {squares.map((value, index) => ( 
+            // Render Square component
+          <Square key={index} value={value} onClick={() => handleClick(index)} /> 
         ))}
         </div>
-
+        {/* Restart Button */}'
         <button 
         onClick={restartGame}
         className="w-full  py-3 border rounded-lg bg-transparent hover:bg-indigo-700 text-white font-bold transition-colors duration-300">
