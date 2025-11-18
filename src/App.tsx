@@ -69,7 +69,7 @@ function App() {
       <div className="w-full max-w-[400px] mx-5">
         <h1 className="text-5xl font-semibold mb-5 text-white font-fingerpaint text-center ">Tic Tac Toe</h1>
         {/* Status Display */}
-        <div className={`text-center mb-4 text-xl font-bold ${winner ? 'text-green-500 animate-bounce' : isDraw ? 'text-red-500 animate-bounce' : 'text-white'}`}>
+        <div className={`text-center mb-4 text-2xl font-Raleway font-bold ${winner ? 'text-green-500 animate-bounce' : isDraw ? 'text-red-500 animate-bounce' : 'text-white'}`}>
           {status}
         </div>
         {/* Game Board with Squares */}
@@ -83,7 +83,7 @@ function App() {
         {/* Restart Button */}'
         <button 
         onClick={restartGame}
-        className="w-full  py-3 border rounded-lg bg-transparent hover:bg-indigo-700 text-white font-bold transition-colors duration-300">
+        className="w-full  py-3 border rounded-lg bg-transparent hover:bg-purple-00 text-white font-bold font-Raleway transition-colors duration-300">
           Restart Game
         </button>
 
