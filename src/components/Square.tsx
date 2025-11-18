@@ -1,7 +1,7 @@
 // Define props for Square component 
 interface SquareProps { 
-  value: string | null;
-  onClick: () => void; 
+  value: string | null; // "X", "O", or null
+  onClick: () => void; // Function that handles clicking a square
 }
 // Square component representing each cell in the Tic Tac Toe board
 function Square({ value, onClick }: SquareProps) {

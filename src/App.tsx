@@ -2,35 +2,43 @@ import Square from "./components/Square"
 import { useState } from "react"
 
 function App() {
-
+  // State to store the board (9 squares, initially all null)
   const [squares, setSquares] = useState<(string | null)[]>(Array(9).fill(null)); 
-  const [isXNext, setIsXNext] = useState(true);
+  //[x,null,null,
+  // null,0,null,
+  // null,null,null]
+  const [isXNext, setIsXNext] = useState(true); // State to keep track of whose turn it is (X starts first)
 
-  const winner = winningCombos(squares);
-  const isDraw = !winner && squares.every(Boolean);
-  const nextPlayer = isXNext ? 'X' : 'O';
+  const winner = winningCombos(squares); // Check if someone has won
+  const isDraw = !winner && squares.every(Boolean); // Check for draw (no winner + board completely filled)
+  const nextPlayer = isXNext ? 'X' : 'O'; // Determine next player
 
-  function  handleClick(index: number) {
+  // Handle clicking on a square . Do nothing if square already filled or a winner exists
+  function  handleClick(index: number) { 
     if (squares[index] || winner) {
       return;
     }
-    const newSquares = squares.slice();
-    newSquares[index] = nextPlayer;
-    setSquares(newSquares);
-    setIsXNext(!isXNext);
+    const newSquares = [...squares]; // Create a shallow copy of squares. Creates a new array using spread syntax. spread or expand the elements of an iterable (like an array) into another array, object, or function call.
+    //const newSquares = squares.slice(); Creates a new array with the same contents .slice() works only on arrays.
+    newSquares[index] = nextPlayer; // Assign X or O
+    setSquares(newSquares); 
+    setIsXNext(!isXNext); // Switch player
   }
 
+    // Status message shown above the board
     const status = winner
     ? `Winner: ${winner}`
     : isDraw
     ? "It's a draw!"
     : `Next player: ${nextPlayer}`;
 
+    // Restart the game
     function restartGame() {
     setSquares(Array(9).fill(null));
     setIsXNext(true);
   }
 
+  // Function to check winning combinations
   function winningCombos(squares: (string | null)[]) {
       const lines = [
       [0, 1, 2],
@@ -43,13 +51,14 @@ function App() {
       [2, 4, 6],
     ];
 
+    // Loop through each winning combination
     for (const [a, b, c] of lines) {
       if (
           squares[a] && 
           squares[a] === squares[b] && 
           squares[a] === squares[c]
         ){
-        return squares[a];
+        return squares[a]; // Return "X" or "O"
       }
     }
     return null;
