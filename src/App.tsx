@@ -74,7 +74,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white  dark:bg-slate-900 flex items-center justify-center transition-colors duration-300 pt-20 sm:pt-0">
+    <div className="min-h-screen bg-red-100  dark:bg-slate-900 flex items-center justify-center transition-colors duration-300 pt-20 sm:pt-0">
       {/* Theme Toggle Button */}
       <button
         onClick={toggleTheme}
